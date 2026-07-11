@@ -1,15 +1,15 @@
 /**
- * Host FFF example — fake a HAL sensor API with polytest_fff.h.
+ * Host FFF example — fake a HAL sensor API with polyontest_fff.h.
  */
-#include "polytest/polytest.h"
-#include "polytest_fff.h"
+#include "polyontest/polyontest.h"
+#include "polyontest_fff.h"
 #include "sensor.h"
 
 #include <stdint.h>
 
 /* Replace the HAL symbols in this translation unit (no real sensor.c linked). */
-POLYTEST_FAKE_VALUE_FUNC1(int32_t, sensor_read, int, -1)
-POLYTEST_FAKE_VOID_FUNC2(sensor_calibrate, int, int32_t)
+POLYONTEST_FAKE_VALUE_FUNC1(int32_t, sensor_read, int, -1)
+POLYONTEST_FAKE_VOID_FUNC2(sensor_calibrate, int, int32_t)
 
 /** Production-shaped helper under test: average two channels. */
 static int32_t avg_two_channels(int ch_a, int ch_b) {
@@ -21,7 +21,7 @@ static int32_t avg_two_channels(int ch_a, int ch_b) {
 static int32_t custom_read_times_ten(int ch) { return (int32_t)(ch * 10); }
 
 TEST(Sensor, Fake, ReturnsConfiguredValue) {
-    POLYTEST_FAKE_RESET_VALUE1(sensor_read, -1);
+    POLYONTEST_FAKE_RESET_VALUE1(sensor_read, -1);
     sensor_read_return = 3300;
     ASSERT_EQ(3300, sensor_read(0));
     ASSERT_EQ(1, sensor_read_call_count);
@@ -29,7 +29,7 @@ TEST(Sensor, Fake, ReturnsConfiguredValue) {
 }
 
 TEST(Sensor, Fake, TracksArgHistory) {
-    POLYTEST_FAKE_RESET_VALUE1(sensor_read, 0);
+    POLYONTEST_FAKE_RESET_VALUE1(sensor_read, 0);
     sensor_read_return = 100;
     (void)sensor_read(3);
     (void)sensor_read(7);
@@ -40,15 +40,15 @@ TEST(Sensor, Fake, TracksArgHistory) {
 }
 
 TEST(Sensor, Fake, CustomFakeBody) {
-    POLYTEST_FAKE_RESET_VALUE1(sensor_read, -1);
+    POLYONTEST_FAKE_RESET_VALUE1(sensor_read, -1);
     sensor_read_custom_fake = custom_read_times_ten;
     ASSERT_EQ(50, sensor_read(5));
     ASSERT_EQ(1, sensor_read_call_count);
 }
 
 TEST(Sensor, Fake, VoidFuncAndAvgHelper) {
-    POLYTEST_FAKE_RESET_VOID2(sensor_calibrate);
-    POLYTEST_FAKE_RESET_VALUE1(sensor_read, 0);
+    POLYONTEST_FAKE_RESET_VOID2(sensor_calibrate);
+    POLYONTEST_FAKE_RESET_VALUE1(sensor_read, 0);
     sensor_read_return = 200;
     sensor_calibrate(1, 25);
     ASSERT_EQ(1, sensor_calibrate_call_count);
@@ -58,4 +58,4 @@ TEST(Sensor, Fake, VoidFuncAndAvgHelper) {
     ASSERT_EQ(2, sensor_read_call_count);
 }
 
-int main(void) { return polytest_run_all(); }
+int main(void) { return polyontest_run_all(); }

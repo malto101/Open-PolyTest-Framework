@@ -173,47 +173,47 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "384b8ab6d37215f3c5301a95a4accb5d64aa607f1fcb26a11b5303878451b4fe"
 
 [[package]]
-name = "open-polytest"
+name = "polyontest"
 version = "0.1.0"
 dependencies = [
  "anyhow",
  "clap",
- "polytest-builtins",
- "polytest-plugin-api",
- "polytest-protocol",
+ "polyontest-builtins",
+ "polyontest-plugin-api",
+ "polyontest-protocol",
  "serde",
  "toml",
 ]
 
 [[package]]
-name = "polytest-builtins"
+name = "polyontest-builtins"
 version = "0.1.0"
 dependencies = [
  "anyhow",
- "polytest-plugin-api",
- "polytest-protocol",
+ "polyontest-plugin-api",
+ "polyontest-protocol",
  "serde_json",
  "thiserror",
 ]
 
 [[package]]
-name = "polytest-host-rust"
+name = "polyontest-host-rust"
 version = "0.1.0"
 dependencies = [
  "cc",
- "polytest-rs",
+ "polyontest-rs",
 ]
 
 [[package]]
-name = "polytest-plugin-api"
+name = "polyontest-plugin-api"
 version = "0.1.0"
 dependencies = [
- "polytest-protocol",
+ "polyontest-protocol",
  "thiserror",
 ]
 
 [[package]]
-name = "polytest-protocol"
+name = "polyontest-protocol"
 version = "0.1.0"
 dependencies = [
  "serde",
@@ -221,7 +221,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "polytest-rs"
+name = "polyontest-rs"
 version = "0.1.0"
 
 [[package]]

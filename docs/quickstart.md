@@ -12,21 +12,21 @@ Three common paths. Pick a tab and follow the commands.
         python3 scripts/amalgamate.py
         ```
 
-    2. Copy `dist/polytest.h` and `dist/polytest.c` into your project.
+    2. Copy `dist/polyontest.h` and `dist/polyontest.c` into your project.
 
     3. Define a profile (and optional text-only path):
 
         ```c
-        #define POLYTEST_PROFILE_TINY
-        #define POLYTEST_MINIMAL_PRINT
-        #include "polytest.h"
+        #define POLYONTEST_PROFILE_TINY
+        #define POLYONTEST_MINIMAL_PRINT
+        #include "polyontest.h"
 
         TEST(Math, Basic, Add) { ASSERT_EQ(4, 2 + 2); }
 
-        int main(void) { return polytest_run_all(); }
+        int main(void) { return polyontest_run_all(); }
         ```
 
-    4. Compile `polytest.c` with your Makefile/CMake and read PASS/FAIL on
+    4. Compile `polyontest.c` with your Makefile/CMake and read PASS/FAIL on
        serial or stdout.
 
     See [Profiles](profiles.md) for size trade-offs and freestanding writer hooks.
@@ -55,10 +55,10 @@ Three common paths. Pick a tab and follow the commands.
 
     ```bash
     cmake -S examples/host_c -B build/host_c \
-      -DPOLYTEST_MINIMAL_PRINT=OFF -DPOLYTEST_PROFILE=full
+      -DPOLYONTEST_MINIMAL_PRINT=OFF -DPOLYONTEST_PROFILE=full
     cmake --build build/host_c
-    cargo run -p open-polytest -- run --target host \
-      --config examples/host_c/polytest.toml
+    cargo run -p polyontest -- run --target host \
+      --config examples/host_c/polyontest.toml
     ```
 
     Produces `report.xml` and `report.json` plus a console summary.
@@ -66,15 +66,15 @@ Three common paths. Pick a tab and follow the commands.
     Filter by tag (host only):
 
     ```bash
-    cargo run -p open-polytest -- run --target host \
-      --config examples/host_c/polytest.toml --tag smoke
+    cargo run -p polyontest -- run --target host \
+      --config examples/host_c/polyontest.toml --tag smoke
     ```
 
     Tiny host smoke (no CLI):
 
     ```bash
     cmake -S examples/host_c -B build/host_tiny \
-      -DPOLYTEST_PROFILE=tiny -DPOLYTEST_MINIMAL_PRINT=ON
+      -DPOLYONTEST_PROFILE=tiny -DPOLYONTEST_MINIMAL_PRINT=ON
     cmake --build build/host_tiny && ./build/host_tiny/host_c_tests
     ```
 
@@ -86,16 +86,16 @@ Three common paths. Pick a tab and follow the commands.
 
     ```bash
     # Needs arm-none-eabi-gcc + qemu-system-arm
-    cargo run -p open-polytest -- run --target qemu_m33 \
-      --config examples/qemu_m33_smoke/polytest.toml
+    cargo run -p polyontest -- run --target qemu_m33 \
+      --config examples/qemu_m33_smoke/polyontest.toml
     ```
 
-    Build with `-DPOLYTEST_PROFILE=tiny` or `small` to compare firmware size.
+    Build with `-DPOLYONTEST_PROFILE=tiny` or `small` to compare firmware size.
 
     !!! warning "Filters on QEMU"
         Freestanding QEMU builds have no `getenv`. CLI `--tag` / `--suite` /
-        `--group` are rejected for `qemu_m33`. Hard-code `polytest_run_tag` or
-        `polytest_run_suite` in the example `main` if you need a subset.
+        `--group` are rejected for `qemu_m33`. Hard-code `polyontest_run_tag` or
+        `polyontest_run_suite` in the example `main` if you need a subset.
 
     Typical loop: edit → fast host check → QEMU in CI → (later) desk hardware.
 

@@ -1,14 +1,14 @@
 [workspace]
 resolver = "2"
 members = [
-    "crates/polytest-plugin-api",
-    "crates/polytest-protocol",
-    "crates/polytest-builtins",
-    "crates/polytest-cli",
-    "crates/polytest-rs",
+    "crates/polyontest-plugin-api",
+    "crates/polyontest-protocol",
+    "crates/polyontest-builtins",
+    "crates/polyontest-cli",
+    "crates/polyontest-rs",
     "examples/host_rust",
 ]
-default-members = ["crates/polytest-cli"]
+default-members = ["crates/polyontest-cli"]
 
 [workspace.package]
 version = "0.1.0"
@@ -18,9 +18,9 @@ repository = "https://github.com/malto101/Open-PolyTest-Framework"
 authors = ["Dhruv Menon"]
 
 [workspace.dependencies]
-polytest-plugin-api = { path = "crates/polytest-plugin-api" }
-polytest-protocol = { path = "crates/polytest-protocol" }
-polytest-builtins = { path = "crates/polytest-builtins" }
+polyontest-plugin-api = { path = "crates/polyontest-plugin-api" }
+polyontest-protocol = { path = "crates/polyontest-protocol" }
+polyontest-builtins = { path = "crates/polyontest-builtins" }
 anyhow = "1"
 clap = { version = "4", features = ["derive"] }
 serde = { version = "1", features = ["derive"] }

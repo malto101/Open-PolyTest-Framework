@@ -1,4 +1,4 @@
-# Contributing to PolyTest
+# Contributing to PolyOnTest
 
 Thanks for your interest in contributing.
 

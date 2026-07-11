@@ -1,15 +1,15 @@
 # Writing plugins
 
-PolyTest’s host CLI is a composition root over traits in
-[`crates/polytest-plugin-api`](https://github.com/malto101/Open-PolyTest-Framework/tree/main/crates/polytest-plugin-api).
+PolyOnTest’s host CLI is a composition root over traits in
+[`crates/polyontest-plugin-api`](https://github.com/malto101/Open-PolyTest-Framework/tree/main/crates/polyontest-plugin-api).
 Builtins live in
-[`crates/polytest-builtins`](https://github.com/malto101/Open-PolyTest-Framework/tree/main/crates/polytest-builtins).
+[`crates/polyontest-builtins`](https://github.com/malto101/Open-PolyTest-Framework/tree/main/crates/polyontest-builtins).
 
 ## Plugin stack
 
 ```mermaid
 flowchart TB
-  subgraph config [polytest.toml ids]
+  subgraph config [polyontest.toml ids]
     boardId["board: host | qemu_m33"]
     transportId["transport: stdio | uart"]
     codecId["codec: cobs | text"]
@@ -54,14 +54,14 @@ imports a concrete UART or board.
 
 ## Adding a builtin
 
-1. Implement the trait in `polytest-builtins` (new module or extend an existing one).
-2. Register it in the CLI / discovery path used by `polytest.toml` `id` fields.
+1. Implement the trait in `polyontest-builtins` (new module or extend an existing one).
+2. Register it in the CLI / discovery path used by `polyontest.toml` `id` fields.
 3. Document the `id` string and any config keys.
 
 Sketch:
 
 ```rust
-use polytest_plugin_api::{Board, PluginError, Result};
+use polyontest_plugin_api::{Board, PluginError, Result};
 
 pub struct MyBoard { /* … */ }
 
@@ -76,8 +76,8 @@ impl Board for MyBoard {
 
 The C harness does not dlopen. Board glue is compile-time:
 
-- `polytest_set_writer` for the byte sink
-- Optional `polytest_set_locks` (full profile)
+- `polyontest_set_writer` for the byte sink
+- Optional `polyontest_set_locks` (full profile)
 - Linker section / ctors for case discovery
 
 See [Architecture](architecture.md) and [Profiles](profiles.md).

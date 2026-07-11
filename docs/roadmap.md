@@ -1,6 +1,6 @@
 # Roadmap
 
-Design and architecture for PolyTest beyond v0.1. This page is the **product
+Design and architecture for PolyOnTest beyond v0.1. This page is the **product
 capability map** and the intended shape of future work — not an implementation
 spec. Near-term shipping priority is **isolation** and **HIL**; certification
 stays aspirational.
@@ -35,7 +35,7 @@ flowchart TB
 !!! note "Design rule"
     Future capabilities ship as **host plugins**, **ExtensionPacks**, or
     **profile-gated harness hooks**. The amalgam core stays freestanding and
-    flash-budget honest — nothing here forces cost into `POLYTEST_PROFILE_TINY`.
+    flash-budget honest — nothing here forces cost into `POLYONTEST_PROFILE_TINY`.
 
 Related today: [Architecture](architecture.md) · [Concepts](concepts.md) ·
 [Plugins](plugins.md).
@@ -81,7 +81,7 @@ thin C++ / Rust adapters.
 **Forward design**
 
 - Per-case fixtures (beyond suite/group) as optional macros on SMALL/FULL.
-- Rust `#[polytest::test]` proc-macro as a first-class adapter, not only FFI.
+- Rust `#[polyontest::test]` proc-macro as a first-class adapter, not only FFI.
 - Mocking stays an ExtensionPack path (`fff_fakes` today); codegen mocks later.
 
 ### On-target runtime and profiles
@@ -157,7 +157,7 @@ flowchart LR
     crash[Fault] --> dead[Whole run dead]
   end
   subgraph hostTarget [Host isolation v1.x]
-    orch[polytest-cli]
+    orch[polyontest-cli]
     caseA[Case A process]
     caseB[Case B process]
     orch --> caseA
@@ -302,7 +302,7 @@ sequenceDiagram
 
 **Topology config (design sketch)**
 
-- `polytest.toml` (or a bench file) lists nodes: `{ id, board, role, transport }`.
+- `polyontest.toml` (or a bench file) lists nodes: `{ id, board, role, transport }`.
 - Conductor steps: `arm` → `barrier` → `run` → `collect` → `verdict`.
 - Command mode on the DUT pairs naturally with stimulus peers; stream mode can
   still participate for simple “DUT emits while aux listens” benches.

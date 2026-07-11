@@ -1,0 +1,16 @@
+[package]
+name = "polyontest-rs"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Rust language adapter for PolyOnTest (calls the C ABI)"
+
+[features]
+default = []
+std = []
+
+[dependencies]
+
+[lib]
+name = "polyontest_rs"
+path = "src/lib.rs"

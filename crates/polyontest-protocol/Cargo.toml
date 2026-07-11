@@ -1,0 +1,10 @@
+[package]
+name = "polyontest-protocol"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "PTWP event model and COBS helpers for PolyOnTest"
+
+[dependencies]
+serde = { workspace = true }
+thiserror = { workspace = true }

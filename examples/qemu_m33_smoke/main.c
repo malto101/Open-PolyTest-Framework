@@ -1,9 +1,9 @@
 /**
- * PolyTest QEMU Cortex-M33 smoke — Core stream over UART0.
+ * PolyOnTest QEMU Cortex-M33 smoke — Core stream over UART0.
  * SPDX-License-Identifier: Apache-2.0
  */
 #include "board_uart.h"
-#include "polytest/polytest.h"
+#include "polyontest/polyontest.h"
 
 #include <stdint.h>
 
@@ -31,8 +31,8 @@ TEST(QemuM33, Core, NotNull) {
 
 int main(void) {
     board_uart_init();
-    polytest_set_writer(uart_writer, 0);
-    int rc = polytest_run_all();
+    polyontest_set_writer(uart_writer, 0);
+    int rc = polyontest_run_all();
     board_qemu_exit(rc);
     return rc;
 }

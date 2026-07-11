@@ -1,11 +1,11 @@
-site_name: PolyTest
+site_name: PolyOnTest
 site_description: Embedded-first multi-language test framework
-site_author: PolyTest contributors
+site_author: PolyOnTest contributors
 docs_dir: docs
 repo_url: https://github.com/malto101/Open-PolyTest-Framework
 repo_name: malto101/Open-PolyTest-Framework
 edit_uri: edit/main/docs/
-copyright: Copyright &copy; PolyTest contributors — Apache-2.0
+copyright: Copyright &copy; PolyOnTest contributors — Apache-2.0
 
 theme:
   name: material

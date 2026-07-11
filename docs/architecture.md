@@ -1,6 +1,6 @@
 # Architecture
 
-PolyTest splits an **on-target C harness** from a **Rust host CLI**. They share
+PolyOnTest splits an **on-target C harness** from a **Rust host CLI**. They share
 one wire model: PTWP events framed as COBS binary or plain text. Outer plugins
 depend inward; **core never imports** a concrete UART, USB, board, or reporter.
 
@@ -11,7 +11,7 @@ flowchart TB
   subgraph target [DUT / on-target]
     harness["C harness\n(harness/c + amalgam)"]
     tests[User TEST cases]
-    writer["Writer hook\n(stdout or polytest_set_writer)"]
+    writer["Writer hook\n(stdout or polyontest_set_writer)"]
     tests --> harness
     harness --> writer
   end
@@ -19,7 +19,7 @@ flowchart TB
     ptwp["PTWP events\n(COBS or text lines)"]
   end
   subgraph host [Host composition root]
-    cli["open-polytest CLI"]
+    cli["polyontest CLI"]
     board[Board plugin]
     transport[Transport plugin]
     codec[Codec plugin]
@@ -38,12 +38,12 @@ flowchart TB
 
 ```mermaid
 flowchart TB
-  cli["polytest-cli\n(composition root)"]
-  api["polytest-plugin-api\n(traits)"]
-  proto["polytest-protocol\n(Event / MsgType)"]
-  builtins["polytest-builtins\n(stdio, cobs, text,\nhost, qemu_m33,\nconsole, junit, json)"]
+  cli["polyontest-cli\n(composition root)"]
+  api["polyontest-plugin-api\n(traits)"]
+  proto["polyontest-protocol\n(Event / MsgType)"]
+  builtins["polyontest-builtins\n(stdio, cobs, text,\nhost, qemu_m33,\nconsole, junit, json)"]
   domain["harness/c\n(on-target domain)"]
-  adapters["C++ / polytest-rs\n(thin ABI wrappers)"]
+  adapters["C++ / polyontest-rs\n(thin ABI wrappers)"]
   cli --> api
   api --> proto
   builtins -.->|implements| api
@@ -54,12 +54,12 @@ flowchart TB
 
 | Layer | Location | Role |
 |-------|----------|------|
-| Composition root | `crates/polytest-cli` | Load toml, select plugins, drain until `Done` |
-| Plugin traits | `crates/polytest-plugin-api` | `Transport`, `Codec`, `Board`, `Reporter`, `ExtensionPack` |
-| Builtins | `crates/polytest-builtins` | In-tree host/QEMU/codec/reporter impls |
-| Protocol | `crates/polytest-protocol` | Codec-agnostic `Event` enum |
+| Composition root | `crates/polyontest-cli` | Load toml, select plugins, drain until `Done` |
+| Plugin traits | `crates/polyontest-plugin-api` | `Transport`, `Codec`, `Board`, `Reporter`, `ExtensionPack` |
+| Builtins | `crates/polyontest-builtins` | In-tree host/QEMU/codec/reporter impls |
+| Protocol | `crates/polyontest-protocol` | Codec-agnostic `Event` enum |
 | On-target domain | `harness/c`, `harness/include` | Runner, asserts, registration |
-| Drop-in amalgam | `dist/polytest.h`, `dist/polytest.c` | Generated via `scripts/amalgamate.py` |
+| Drop-in amalgam | `dist/polyontest.h`, `dist/polyontest.c` | Generated via `scripts/amalgamate.py` |
 
 ## SOLID mapping
 
@@ -69,14 +69,14 @@ flowchart TB
 | O | Add HCI/nanopb/Pico as plugins without editing Core |
 | L | Any `Transport` / `Codec` is interchangeable |
 | I | Separate traits — not one mega-plugin |
-| D | CLI depends on traits; `polytest.toml` selects impls |
+| D | CLI depends on traits; `polyontest.toml` selects impls |
 
 ## On-target vs host
 
 | Side | Mechanism |
 |------|-----------|
 | Host | Rust traits + in-tree builtins |
-| Target | Compile-time hooks (`polytest_set_writer`, section/ctors) — no dlopen |
+| Target | Compile-time hooks (`polyontest_set_writer`, section/ctors) — no dlopen |
 
 !!! note "QEMU `transport = \"uart\"`"
     For `qemu_m33`, the logical transport id is `uart`, but I/O is **semihosting
@@ -88,13 +88,13 @@ flowchart TB
 ```mermaid
 sequenceDiagram
   participant User
-  participant CLI as polytest CLI
+  participant CLI as polyontest CLI
   participant Board
   participant Transport
   participant Codec
   participant Reporter
   participant DUT as DUT process
-  User->>CLI: polytest run --target …
+  User->>CLI: polyontest run --target …
   CLI->>Board: prepare / resolve artifact
   opt build command in toml
     Board->>DUT: shell build
@@ -122,7 +122,7 @@ flowchart LR
   end
   subgraph sink [Output]
     defaultOut[Default stdout writer]
-    custom["polytest_set_writer(...)"]
+    custom["polyontest_set_writer(...)"]
   end
   subgraph framing [Framing]
     cobs["COBS + PTWP binary\n(default when not MINIMAL_PRINT)"]
@@ -144,7 +144,7 @@ flowchart LR
 ## PTWP events
 
 Structured results use COBS-framed PTWP payloads (`codec = "cobs"`). Hobbyists
-can use `POLYTEST_MINIMAL_PRINT` / `codec = "text"` instead.
+can use `POLYONTEST_MINIMAL_PRINT` / `codec = "text"` instead.
 
 | Event (protocol) | Typical meaning |
 |------------------|-----------------|
@@ -156,11 +156,11 @@ can use `POLYTEST_MINIMAL_PRINT` / `codec = "text"` instead.
 
 ## Size profiles and discovery
 
-Compile-time profiles (`POLYTEST_PROFILE_TINY` / `SMALL` / `FULL`) map to
-`POLYTEST_CFG_HAS_*` feature macros. See [Profiles](profiles.md).
+Compile-time profiles (`POLYONTEST_PROFILE_TINY` / `SMALL` / `FULL`) map to
+`POLYONTEST_CFG_HAS_*` feature macros. See [Profiles](profiles.md).
 
 Default discovery uses `__attribute__((constructor))`. Optional
-`POLYTEST_USE_SECTION_REGISTRY` walks `.polytest_info` / `__DATA,polytest`.
+`POLYONTEST_USE_SECTION_REGISTRY` walks `.polyontest_info` / `__DATA,polyontest`.
 Linker details live on the profiles page.
 
 ## Related

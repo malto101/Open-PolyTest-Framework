@@ -13,17 +13,17 @@ jobs:
       - name: Amalgamate
         run: python3 scripts/amalgamate.py
       - name: Build CLI
-        run: cargo build -p open-polytest
+        run: cargo build -p polyontest
       - name: Test Rust workspace
         run: cargo test --workspace
       - name: Configure host C (text)
-        run: cmake -S examples/host_c -B build/host_c_text -DPOLYTEST_MINIMAL_PRINT=ON -DPOLYTEST_PROFILE=full
+        run: cmake -S examples/host_c -B build/host_c_text -DPOLYONTEST_MINIMAL_PRINT=ON -DPOLYONTEST_PROFILE=full
       - name: Build host C (text)
         run: cmake --build build/host_c_text
       - name: Run host C (text)
         run: ./build/host_c_text/host_c_tests
       - name: Configure host C (tiny)
-        run: cmake -S examples/host_c -B build/host_tiny -DPOLYTEST_PROFILE=tiny -DPOLYTEST_MINIMAL_PRINT=ON
+        run: cmake -S examples/host_c -B build/host_tiny -DPOLYONTEST_PROFILE=tiny -DPOLYONTEST_MINIMAL_PRINT=ON
       - name: Build host C (tiny)
         run: cmake --build build/host_tiny
       - name: Run host C (tiny)
@@ -35,25 +35,25 @@ jobs:
       - name: Run host FFF
         run: ./build/host_fff/host_fff_tests
       - name: Configure host C (COBS)
-        run: cmake -S examples/host_c -B build/host_c -DPOLYTEST_MINIMAL_PRINT=OFF -DPOLYTEST_PROFILE=full
+        run: cmake -S examples/host_c -B build/host_c -DPOLYONTEST_MINIMAL_PRINT=OFF -DPOLYONTEST_PROFILE=full
       - name: Build host C (COBS)
         run: cmake --build build/host_c
-      - name: Run via polytest CLI
-        run: cargo run -p open-polytest -- run --target host --config examples/host_c/polytest.toml
-      - name: Run via polytest CLI (tag filter)
-        run: cargo run -p open-polytest -- run --target host --config examples/host_c/polytest.toml --tag smoke
+      - name: Run via polyontest CLI
+        run: cargo run -p polyontest -- run --target host --config examples/host_c/polyontest.toml
+      - name: Run via polyontest CLI (tag filter)
+        run: cargo run -p polyontest -- run --target host --config examples/host_c/polyontest.toml --tag smoke
       - name: Configure host C++
-        run: cmake -S examples/host_cpp -B build/host_cpp -DPOLYTEST_MINIMAL_PRINT=ON -DPOLYTEST_PROFILE=full
+        run: cmake -S examples/host_cpp -B build/host_cpp -DPOLYONTEST_MINIMAL_PRINT=ON -DPOLYONTEST_PROFILE=full
       - name: Build host C++
         run: cmake --build build/host_cpp
       - name: Run host C++
         run: ./build/host_cpp/host_cpp_tests
       - name: Build host Rust
-        run: cargo build -p polytest-host-rust
+        run: cargo build -p polyontest-host-rust
       - name: Run host Rust
-        run: cargo run -p polytest-host-rust
+        run: cargo run -p polyontest-host-rust
       - name: Build host Rust (COBS)
-        run: cargo build -p polytest-host-rust --no-default-features --features cobs
+        run: cargo build -p polyontest-host-rust --no-default-features --features cobs
       - name: Run host Rust via CLI
         run: |
           BIN_DIR=$(cargo metadata --format-version 1 --no-deps | python3 -c "import json,sys; print(json.load(sys.stdin)['target_directory'])")
@@ -65,7 +65,7 @@ jobs:
             cp "$SRC" "$DST"
           fi
           test -x "$DST"
-          cargo run -p open-polytest -- run --target host --config examples/host_rust/polytest.toml
+          cargo run -p polyontest -- run --target host --config examples/host_rust/polyontest.toml
       - name: Upload reports
         uses: actions/upload-artifact@v4
         if: always()
@@ -86,9 +86,9 @@ jobs:
           # build-essential provides make, required by CMake's Unix Makefiles generator
           sudo apt-get install -y gcc-arm-none-eabi qemu-system-arm cmake build-essential
       - name: Build CLI
-        run: cargo build -p open-polytest
+        run: cargo build -p polyontest
       - name: Build and run QEMU M33 smoke
-        run: cargo run -p open-polytest -- run --target qemu_m33 --config examples/qemu_m33_smoke/polytest.toml
+        run: cargo run -p polyontest -- run --target qemu_m33 --config examples/qemu_m33_smoke/polyontest.toml
       - name: Upload QEMU reports
         uses: actions/upload-artifact@v4
         if: always()

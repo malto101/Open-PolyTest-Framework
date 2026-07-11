@@ -1,30 +1,27 @@
-# PolyTest
+# PolyOnTest
 
-**PolyTest** is an open-source, Apache-2.0 embedded-first test framework with a
+**PolyOnTest** is an open-source, Apache-2.0 embedded-first test framework with a
 SOLID plugin architecture. It targets hobby MCUs, RTOS apps, kernels, and host
 libraries (C / C++ / Rust) without locking you into Zephyr or Pigweed.
-
-> Not affiliated with the unrelated crates.io crate [`polytest`](https://crates.io/crates/polytest).
-> This project's CLI crate is **`open-polytest`** (binary: `polytest`).
 
 ## Thirty-second taste
 
 ```bash
 python3 scripts/amalgamate.py
-# copy dist/polytest.h dist/polytest.c into your project
+# copy dist/polyontest.h dist/polyontest.c into your project
 ```
 
 ```c
-#define POLYTEST_PROFILE_TINY
-#define POLYTEST_MINIMAL_PRINT
-#include "polytest.h"
+#define POLYONTEST_PROFILE_TINY
+#define POLYONTEST_MINIMAL_PRINT
+#include "polyontest.h"
 
 TEST(Math, Basic, Add) { ASSERT_EQ(4, 2 + 2); }
 
-int main(void) { return polytest_run_all(); }
+int main(void) { return polyontest_run_all(); }
 ```
 
-Compile `polytest.c` with your existing Makefile/CMake — no PolyTest build system required.
+Compile `polyontest.c` with your existing Makefile/CMake — no PolyOnTest build system required.
 
 ## Documentation
 

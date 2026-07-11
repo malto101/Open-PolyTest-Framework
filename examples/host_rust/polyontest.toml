@@ -1,0 +1,13 @@
+# PolyOnTest host Rust example
+#
+#   cargo build -p polyontest-host-rust --no-default-features --features cobs
+#   cargo run -p polyontest -- run --target host --config examples/host_rust/polyontest.toml
+
+[target.host]
+board = "host"
+transport = "stdio"
+codec = "cobs"
+mode = "stream"
+reporters = ["console", "junit", "json"]
+binary = "target/debug/host_rust_tests"
+timeout_ms = 10000

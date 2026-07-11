@@ -2,7 +2,7 @@
  * Host C smoke tests — suite/group fixtures, tags, asserts, IGNORE, PROTECT,
  * parameterized cases.
  */
-#include "polytest/polytest.h"
+#include "polyontest/polyontest.h"
 
 static int add(int a, int b) { return a + b; }
 
@@ -21,17 +21,17 @@ static const add_case_t k_add_cases[] = {
     {-1, 1, 0},
 };
 
-POLYTEST_SUITE_SETUP(Math) { g_suite_ready = 1; }
-POLYTEST_SUITE_TEARDOWN(Math) { g_suite_ready = 0; }
-POLYTEST_SUITE_TAGS(Math, "host", "smoke");
+POLYONTEST_SUITE_SETUP(Math) { g_suite_ready = 1; }
+POLYONTEST_SUITE_TEARDOWN(Math) { g_suite_ready = 0; }
+POLYONTEST_SUITE_TAGS(Math, "host", "smoke");
 
-POLYTEST_GROUP_SETUP(Math, Basic) { g_group_value = 40; }
-POLYTEST_GROUP_TEARDOWN(Math, Basic) { g_group_value = 0; }
-POLYTEST_GROUP_TAGS(Math, Basic, "unit");
+POLYONTEST_GROUP_SETUP(Math, Basic) { g_group_value = 40; }
+POLYONTEST_GROUP_TEARDOWN(Math, Basic) { g_group_value = 0; }
+POLYONTEST_GROUP_TAGS(Math, Basic, "unit");
 
 TEST(Math, Basic, AddPositive) {
     ASSERT_EQ(5, add(2, 3));
-#if POLYTEST_CFG_HAS_FIXTURES
+#if POLYONTEST_CFG_HAS_FIXTURES
     ASSERT_TRUE(g_suite_ready);
 #endif
 }
@@ -41,7 +41,7 @@ TEST(Math, Basic, AddZero) {
 }
 
 TEST(Math, Basic, UsesGroupSetup) {
-#if POLYTEST_CFG_HAS_FIXTURES
+#if POLYONTEST_CFG_HAS_FIXTURES
     ASSERT_EQ(42, g_group_value + 2);
 #else
     ASSERT_EQ(2, add(1, 1));
@@ -50,17 +50,17 @@ TEST(Math, Basic, UsesGroupSetup) {
 
 TEST(Math, Basic, TypedAndBits) {
     ASSERT_EQUAL_HEX32(0xA5u, 0xA5u);
-#if POLYTEST_CFG_HAS_EXTENDED_ASSERTS
+#if POLYONTEST_CFG_HAS_EXTENDED_ASSERTS
     ASSERT_BITS(0x0Fu, 0x05u, 0x15u);
     ASSERT_BITS_HIGH(0x01u, 0xF1u);
     ASSERT_BITS_LOW(0x02u, 0xF1u);
 #endif
     ASSERT_GREATER_THAN(3, 10);
     ASSERT_INT_WITHIN(2, 10, 11);
-#if POLYTEST_CFG_HAS_EXTENDED_ASSERTS
+#if POLYONTEST_CFG_HAS_EXTENDED_ASSERTS
     ASSERT_EQUAL_STRING("hi", "hi");
 #endif
-#ifndef POLYTEST_EXCLUDE_FLOAT
+#ifndef POLYONTEST_EXCLUDE_FLOAT
     ASSERT_EQUAL_FLOAT(1.0f, 1.0f);
 #endif
 }
@@ -79,7 +79,7 @@ TEST(Math, Basic, ProtectRegion) {
     ASSERT_TRUE(entered);
 }
 
-#if POLYTEST_CFG_HAS_FIXTURES
+#if POLYONTEST_CFG_HAS_FIXTURES
 PARAM_TEST(Math, Basic, AddTable, add_case_t, k_add_cases) {
     const add_case_t row = PARAM_AS(add_case_t);
     ASSERT_EQ(row.sum, add(row.a, row.b));
@@ -91,4 +91,4 @@ TEST(Expect, Pointers, NotNull) {
     ASSERT_NOT_NULL(&x);
 }
 
-int main(void) { return polytest_run_from_env(); }
+int main(void) { return polyontest_run_from_env(); }

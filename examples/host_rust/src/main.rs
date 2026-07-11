@@ -2,13 +2,13 @@
 
 unsafe extern "C" {
     /// Pulls `tests.c` into the link so TEST constructors are retained.
-    fn polytest_host_rust_link_anchor() -> i32;
+    fn polyontest_host_rust_link_anchor() -> i32;
 }
 
 fn main() {
     unsafe {
-        let _ = polytest_host_rust_link_anchor();
+        let _ = polyontest_host_rust_link_anchor();
     }
-    let code = polytest_rs::std_support::run_from_env();
+    let code = polyontest_rs::std_support::run_from_env();
     std::process::exit(code);
 }

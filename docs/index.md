@@ -1,4 +1,4 @@
-# PolyTest
+# PolyOnTest
 
 Embedded-first unit and on-target tests for **C**, **C++**, and **Rust** — from a
 two-file MCU drop-in to host CI — without a vendor RTOS or build-system lock-in.
@@ -55,7 +55,7 @@ flowchart LR
 
     ---
 
-    `polytest run`, filters, and `polytest.toml` schema.
+    `polyontest run`, filters, and `polyontest.toml` schema.
 
     [:octicons-arrow-right-24: CLI reference](cli.md)
 

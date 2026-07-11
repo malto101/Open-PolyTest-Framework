@@ -1,0 +1,13 @@
+[package]
+name = "polyontest-builtins"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Built-in PolyOnTest plugins (transport, codec, board, reporter)"
+
+[dependencies]
+polyontest-plugin-api = { workspace = true }
+polyontest-protocol = { workspace = true }
+anyhow = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }

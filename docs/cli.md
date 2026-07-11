@@ -1,12 +1,12 @@
 # CLI reference
 
-Binary crate: `open-polytest` (command: `polytest`).
+Binary crate: `polyontest` (command: `polyontest`).
 
 ## Run pipeline
 
 ```mermaid
 flowchart TD
-  inv["polytest run --target T --config cfg"] --> load[Load polytest.toml]
+  inv["polyontest run --target T --config cfg"] --> load[Load polyontest.toml]
   load --> resolve[Resolve board / transport / codec / reporters]
   resolve --> flags{CLI --tag / --suite / --group?}
   flags -->|Yes| override[Override toml filter keys]
@@ -27,18 +27,18 @@ flowchart TD
 ## Commands
 
 ```bash
-polytest plugins
-polytest run --target <name> --config path/to/polytest.toml \
+polyontest plugins
+polyontest run --target <name> --config path/to/polyontest.toml \
   [--tag TAG] [--suite SUITE] [--group GROUP]
 ```
 
 | Flag | Meaning |
 |------|---------|
 | `--target` | Key under `[target.<name>]` in the toml (default `host`) |
-| `--config` | Path to `polytest.toml` |
-| `--tag` | Host only — sets `POLYTEST_TAG` for the DUT |
-| `--suite` | Host only — sets `POLYTEST_SUITE` |
-| `--group` | Host only — sets `POLYTEST_GROUP` (requires `--suite`) |
+| `--config` | Path to `polyontest.toml` |
+| `--tag` | Host only — sets `POLYONTEST_TAG` for the DUT |
+| `--suite` | Host only — sets `POLYONTEST_SUITE` |
+| `--group` | Host only — sets `POLYONTEST_GROUP` (requires `--suite`) |
 
 CLI filter flags **override** matching keys in the toml.
 
@@ -79,9 +79,9 @@ timeout_ms = 10000
 
 | Board | Execution filter |
 |-------|------------------|
-| `host` | Env vars → DUT `polytest_run_from_env()` |
-| `qemu_m33` | **Not supported** — freestanding has no `getenv`. CLI errors if filters are set. Hard-code `polytest_run_tag` / `run_suite` in the QEMU `main` if needed. |
+| `host` | Env vars → DUT `polyontest_run_from_env()` |
+| `qemu_m33` | **Not supported** — freestanding has no `getenv`. CLI errors if filters are set. Hard-code `polyontest_run_tag` / `run_suite` in the QEMU `main` if needed. |
 
-DUT binaries should call `polytest_run_from_env()` (or the C++/Rust wrappers) so filters take effect.
+DUT binaries should call `polyontest_run_from_env()` (or the C++/Rust wrappers) so filters take effect.
 
 See also [Tags](tags.md).

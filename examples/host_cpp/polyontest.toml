@@ -1,0 +1,14 @@
+# PolyOnTest host C++ example
+#
+#   cmake -S examples/host_cpp -B build/host_cpp -DPOLYONTEST_MINIMAL_PRINT=OFF
+#   cmake --build build/host_cpp
+#   cargo run -p polyontest -- run --target host --config examples/host_cpp/polyontest.toml
+
+[target.host]
+board = "host"
+transport = "stdio"
+codec = "cobs"
+mode = "stream"
+reporters = ["console", "junit", "json"]
+binary = "build/host_cpp/host_cpp_tests"
+timeout_ms = 10000

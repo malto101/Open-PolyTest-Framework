@@ -1,4 +1,4 @@
-/* PolyTest docs — subtle Material refinements */
+/* PolyOnTest docs — subtle Material refinements */
 
 :root {
   --pt-diagram-bg: color-mix(in srgb, var(--md-default-fg-color) 4%, transparent);

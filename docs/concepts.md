@@ -1,6 +1,6 @@
 # Concepts
 
-How PolyTest fits together: progressive enhancement, when to choose each path,
+How PolyOnTest fits together: progressive enhancement, when to choose each path,
 how the amalgam is built, and how CI exercises the matrix.
 
 ## Progressive enhancement
@@ -30,8 +30,8 @@ flowchart TD
   qemuOrHw -->|Yes| qemuPath[qemu_m33 board + COBS stream]
   qemuOrHw -->|Desk hardware later| hwNote[Same writer hook; board plugin v2+]
   hostPath --> filters{Need tag filters?}
-  filters -->|Yes| fromEnv[polytest_run_from_env + CLI flags]
-  filters -->|No| runAll[polytest_run_all]
+  filters -->|Yes| fromEnv[polyontest_run_from_env + CLI flags]
+  filters -->|No| runAll[polyontest_run_all]
   hobby --> profiles[See Profiles]
   qemuPath --> profiles
   fromEnv --> plugins[See CLI and Plugins]
@@ -52,17 +52,17 @@ Two ways to consume the C harness:
 ```mermaid
 flowchart LR
   subgraph sources [Harness sources]
-    hdr["harness/include/polytest/*.h"]
+    hdr["harness/include/polyontest/*.h"]
     src["harness/c/*.c"]
   end
   subgraph amalgamPath [Hobby / third-party MCU]
     script["scripts/amalgamate.py"]
-    dist["dist/polytest.h + polytest.c"]
+    dist["dist/polyontest.h + polyontest.c"]
     userMake[Your Makefile or CMake]
   end
   subgraph modularPath [In-tree examples / CI]
-    cmake["cmake/PolyTest.cmake"]
-    lib[polytest_core static lib]
+    cmake["cmake/PolyOnTest.cmake"]
+    lib[polyontest_core static lib]
     examples[examples/*/]
   end
   hdr --> script
@@ -75,8 +75,8 @@ flowchart LR
   lib --> examples
 ```
 
-- **Amalgam** — copy two files; no PolyTest build system on the DUT.
-- **Modular** — link `polytest_core` via `PolyTest.cmake` when developing inside
+- **Amalgam** — copy two files; no PolyOnTest build system on the DUT.
+- **Modular** — link `polyontest_core` via `PolyOnTest.cmake` when developing inside
   this repo or mirroring the example layout.
 
 !!! tip "Generated files"
@@ -94,7 +94,7 @@ flowchart TD
   main --> entry{Runner entry}
   entry -->|run_all| all[match all]
   entry -->|run_tag / suite / group| filt[match filter]
-  entry -->|run_from_env| env[POLYTEST_TAG / SUITE / GROUP]
+  entry -->|run_from_env| env[POLYONTEST_TAG / SUITE / GROUP]
   all --> loop
   filt --> loop
   env --> loop
@@ -135,7 +135,7 @@ flowchart TD
   cpp --> rust[host_rust + CLI]
   rust --> artsHost[Upload report.xml / report.json]
   qemuJob --> toolchains[arm-none-eabi-gcc + qemu-system-arm]
-  toolchains --> qemuRun["polytest run --target qemu_m33"]
+  toolchains --> qemuRun["polyontest run --target qemu_m33"]
   qemuRun --> artsQemu[Upload reports]
 ```
 

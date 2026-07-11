@@ -1,0 +1,25 @@
+# PolyOnTest host example config (Scenario 3)
+#
+# Build first:
+#   cmake -S examples/host_c -B build/host_c -DPOLYONTEST_MINIMAL_PRINT=OFF
+#   cmake --build build/host_c
+#   cargo run -p polyontest -- run --target host --config examples/host_c/polyontest.toml
+
+[target.host]
+board = "host"
+transport = "stdio"
+codec = "cobs"
+extension = "core_stream"
+mode = "stream"
+reporters = ["console", "junit", "json"]
+binary = "build/host_c/host_c_tests"
+timeout_ms = 10000
+
+[target.host_text]
+board = "host"
+transport = "stdio"
+codec = "text"
+mode = "stream"
+reporters = ["console"]
+binary = "build/host_c/host_c_tests"
+timeout_ms = 10000
