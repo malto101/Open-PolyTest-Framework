@@ -89,4 +89,5 @@ included by test code — they are not Rust trait plugins. See [Mocking](mocking
 
 !!! info "Roadmap ids"
     Documented for later versions: `usb_cdc`, `hci`, `nanopb`, `pico2w`,
-    `command`, `hil_conductor`. v0.1 ships stream mode only.
+    `command`, `hil_conductor`, plus isolation / coverage / chaos packs.
+    See [Roadmap](roadmap.md). v0.1 ships stream mode only.

@@ -144,5 +144,6 @@ Locally, the same commands appear in [Quickstart](quickstart.md).
 ## Next
 
 - [Architecture](architecture.md) — host vs target, PTWP, plugin dependency rule
+- [Roadmap](roadmap.md) — future tiers: isolation, HIL, coverage, chaos
 - [Profiles](profiles.md) — flash budget knobs
 - [Plugins](plugins.md) — extending the CLI composition root

@@ -35,6 +35,14 @@ flowchart LR
 
     [:octicons-arrow-right-24: Architecture](architecture.md)
 
+-   :material-map-legend: **Roadmap**
+
+    ---
+
+    Tiered capability map: isolation, HIL, coverage, chaos — design only.
+
+    [:octicons-arrow-right-24: Roadmap](roadmap.md)
+
 -   :material-chip: **Profiles**
 
     ---
@@ -67,7 +75,7 @@ flowchart LR
 |----------|--------|
 | Auto-register + Core stream | **v0.1** |
 | Size profiles + FFF mocks | **v0.1** |
-| Command mode / Pico / HIL | v2+ |
+| Isolation / command / HIL / coverage | [Roadmap](roadmap.md) (v1.x–v3) |
 
 Language adapters: [C++](cpp.md) · [Rust](rust.md). Tag filtering: [Tags](tags.md).
 

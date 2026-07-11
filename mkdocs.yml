@@ -76,6 +76,7 @@ nav:
   - Concepts:
       - Overview: concepts.md
       - Architecture: architecture.md
+      - Roadmap: roadmap.md
       - Profiles: profiles.md
       - Tags: tags.md
   - Host tooling:

@@ -166,5 +166,6 @@ Linker details live on the profiles page.
 ## Related
 
 - [Concepts](concepts.md) — progressive enhancement and lifecycle
+- [Roadmap](roadmap.md) — isolation, HIL, coverage, chaos (design)
 - [Plugins](plugins.md) — authoring builtins
 - [CLI](cli.md) — toml schema and filters
