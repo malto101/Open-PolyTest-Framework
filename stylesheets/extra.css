@@ -1,0 +1,57 @@
+/* PolyOnTest docs — subtle Material refinements */
+
+:root {
+  --pt-diagram-bg: color-mix(in srgb, var(--md-default-fg-color) 4%, transparent);
+  --pt-radius: 0.35rem;
+}
+
+.md-typeset h1 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.md-typeset h2 {
+  font-weight: 600;
+  margin-top: 1.75em;
+}
+
+.md-typeset code {
+  border-radius: var(--pt-radius);
+}
+
+.md-typeset pre > code {
+  border-radius: var(--pt-radius);
+}
+
+/* Mermaid diagrams: readable containers in light/dark */
+.md-typeset .mermaid {
+  margin: 1.25em 0;
+  padding: 1rem 0.75rem;
+  background: var(--pt-diagram-bg);
+  border-radius: var(--pt-radius);
+  overflow-x: auto;
+  text-align: center;
+}
+
+.md-typeset .mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Grid cards on home */
+.md-typeset .grid.cards > ul > li {
+  border-radius: var(--pt-radius);
+}
+
+.md-typeset .grid.cards > ul > li > hr {
+  margin-block: 0.75rem;
+}
+
+/* Slightly stronger nav section labels */
+.md-nav__title {
+  font-weight: 600;
+}
+
+.md-typeset table:not([class]) th {
+  font-weight: 600;
+}

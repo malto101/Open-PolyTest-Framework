@@ -1,0 +1,2150 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Embedded-first multi-language test framework">
+      
+      
+        <meta name="author" content="PolyOnTest contributors">
+      
+      
+        <link rel="canonical" href="https://malto101.github.io/Open-PolyOnTest-Framework/roadmap/">
+      
+      
+        <link rel="prev" href="../architecture/">
+      
+      
+        <link rel="next" href="../profiles/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Roadmap - PolyOnTest</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+  
+      
+    
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11.6.0/dist/mermaid.min.js"></script>
+
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="slate" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#roadmap" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="PolyOnTest" class="md-header__button md-logo" aria-label="PolyOnTest" data-md-component="logo">
+      
+  <img src="../assets/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PolyOnTest
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Roadmap
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="slate" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="slate" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/malto101/Open-PolyOnTest-Framework" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    malto101/Open-PolyOnTest-Framework
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="PolyOnTest" class="md-nav__button md-logo" aria-label="PolyOnTest" data-md-component="logo">
+      
+  <img src="../assets/logo.svg" alt="logo">
+
+    </a>
+    PolyOnTest
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/malto101/Open-PolyOnTest-Framework" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    malto101/Open-PolyOnTest-Framework
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#capability-taxonomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capability taxonomy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ship-waves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ship waves
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tier-1-core-v01-spine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tier 1 — Core (v0.1 spine)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tier 1 — Core (v0.1 spine)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test library
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-target-runtime-and-profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        On-target runtime and profiles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protocol-ptwp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protocol (PTWP)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orchestration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orchestration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connectivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connectivity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reporting-and-delivery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reporting and delivery
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tier-2-resilience-and-insight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tier 2 — Resilience and insight
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tier 2 — Resilience and insight">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#isolation-and-sandboxing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Isolation and sandboxing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fault-injection-and-mutation-chaos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fault injection and mutation (chaos)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coverage-and-execution-trace-harvest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coverage and execution-trace harvest
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reporting-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reporting dashboard
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tier-3-bench-hil-and-regulatory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tier 3 — Bench HIL and regulatory
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tier 3 — Bench HIL and regulatory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#environmental-simulators-and-hil-orchestration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environmental simulators and HIL orchestration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#certification-and-regulatory-packs-aspirational" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Certification and regulatory packs (aspirational)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-cutting-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-cutting architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cross-cutting architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#where-each-capability-plugs-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where each capability plugs in
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#progressive-enhancement-vs-enterprise-depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Progressive enhancement vs enterprise depth
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decisions-locked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decisions locked
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#out-of-scope-for-this-document" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Out of scope for this document
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../profiles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Profiles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Host tooling
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Host tooling
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mocking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mocking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Language adapters
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Language adapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rust/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rust
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#capability-taxonomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capability taxonomy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ship-waves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ship waves
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tier-1-core-v01-spine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tier 1 — Core (v0.1 spine)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tier 1 — Core (v0.1 spine)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test library
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-target-runtime-and-profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        On-target runtime and profiles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protocol-ptwp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protocol (PTWP)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orchestration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orchestration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connectivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connectivity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reporting-and-delivery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reporting and delivery
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tier-2-resilience-and-insight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tier 2 — Resilience and insight
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tier 2 — Resilience and insight">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#isolation-and-sandboxing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Isolation and sandboxing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fault-injection-and-mutation-chaos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fault injection and mutation (chaos)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coverage-and-execution-trace-harvest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coverage and execution-trace harvest
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reporting-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reporting dashboard
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tier-3-bench-hil-and-regulatory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tier 3 — Bench HIL and regulatory
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tier 3 — Bench HIL and regulatory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#environmental-simulators-and-hil-orchestration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environmental simulators and HIL orchestration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#certification-and-regulatory-packs-aspirational" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Certification and regulatory packs (aspirational)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-cutting-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-cutting architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cross-cutting architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#where-each-capability-plugs-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where each capability plugs in
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#progressive-enhancement-vs-enterprise-depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Progressive enhancement vs enterprise depth
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decisions-locked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decisions locked
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#out-of-scope-for-this-document" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Out of scope for this document
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="roadmap">Roadmap<a class="headerlink" href="#roadmap" title="Permanent link">&para;</a></h1>
+<p>Design and architecture for PolyOnTest beyond v0.1. This page is the <strong>product
+capability map</strong> and the intended shape of future work — not an implementation
+spec. Near-term shipping priority is <strong>isolation</strong> and <strong>HIL</strong>; certification
+stays aspirational.</p>
+<pre class="mermaid"><code>flowchart TB
+  subgraph tier1 [Tier 1 Core]
+    lib[Test library]
+    runtime[On-target runtime]
+    proto[PTWP protocol]
+    orch[Orchestration]
+    conn[Connectivity]
+    report[Reporters and delivery]
+  end
+  subgraph tier2 [Tier 2 Resilience and insight]
+    isol[Isolation sandbox]
+    chaos[Fault injection mutation]
+    obs[Observability]
+    cov[Coverage and traces]
+    dash[Dashboard]
+  end
+  subgraph tier3 [Tier 3 Bench and regulatory]
+    hil[Bench HIL conductor]
+    stim[Stimulus generators]
+    sync[Multi-node sync]
+    qual[Certification aspirational]
+  end
+  tier1 --&gt; tier2
+  tier2 --&gt; tier3</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Design rule</p>
+<p>Future capabilities ship as <strong>host plugins</strong>, <strong>ExtensionPacks</strong>, or
+<strong>profile-gated harness hooks</strong>. The amalgam core stays freestanding and
+flash-budget honest — nothing here forces cost into <code>POLYONTEST_PROFILE_TINY</code>.</p>
+</div>
+<p>Related today: <a href="../architecture/">Architecture</a> · <a href="../concepts/">Concepts</a> ·
+<a href="../plugins/">Plugins</a>.</p>
+<hr />
+<h2 id="capability-taxonomy">Capability taxonomy<a class="headerlink" href="#capability-taxonomy" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Pillars</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1 — Core</strong></td>
+<td>Test library · On-target runtime + profiles · PTWP · Orchestration · Connectivity · Reporting exporters + delivery</td>
+</tr>
+<tr>
+<td><strong>2 — Resilience &amp; insight</strong></td>
+<td>Isolation / sandboxing · Fault injection + mutation · Observability · Coverage / trace harvest · Dashboard</td>
+</tr>
+<tr>
+<td><strong>3 — Bench &amp; regulatory</strong></td>
+<td>Bench HIL (stimulus + sync) · Certification / TQK (<strong>aspirational only</strong>)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="ship-waves">Ship waves<a class="headerlink" href="#ship-waves" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Wave</th>
+<th>Focus</th>
+<th>Closes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>v0.1</strong> (now)</td>
+<td>Library, runtime, PTWP, stream orchestration, console/JUnit/JSON, FFF, host + QEMU M33, CI</td>
+<td>Tier 1 spine</td>
+</tr>
+<tr>
+<td><strong>v1.x</strong></td>
+<td>Host process-per-case isolation; PTWP timing / heap watermarks; post-run dashboard over JSON; host coverage</td>
+<td>Tier 2 MVP (host-first)</td>
+</tr>
+<tr>
+<td><strong>v2</strong></td>
+<td>Command mode; real UART / USB CDC / HCI; Pico boards</td>
+<td>Orchestration depth + connectivity</td>
+</tr>
+<tr>
+<td><strong>v2.x</strong></td>
+<td>HIL conductor (stimulus + barriers); MCU MPU isolation; freestanding PTWP coverage dump</td>
+<td>Priority: <strong>isolation + HIL</strong></td>
+</tr>
+<tr>
+<td><strong>v3</strong></td>
+<td>Mutation CI; richer live fault injection</td>
+<td>Chaos depth</td>
+</tr>
+<tr>
+<td><strong>Later</strong></td>
+<td>Tool qualification kit / certified-compiler matrix</td>
+<td>Aspirational — not staffed until HIL + isolation ship</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Locked sequence:</strong> host isolation → command + HIL bench → MCU MPU isolation →
+coverage depth → mutation / chaos. Certification remains a Tier-3 footnote.</p>
+<hr />
+<h2 id="tier-1-core-v01-spine">Tier 1 — Core (v0.1 spine)<a class="headerlink" href="#tier-1-core-v01-spine" title="Permanent link">&para;</a></h2>
+<p>What ships today and how it grows without breaking the plugin dependency rule
+(<a href="../architecture/">Architecture</a>).</p>
+<h3 id="test-library">Test library<a class="headerlink" href="#test-library" title="Permanent link">&para;</a></h3>
+<p>Unity-like <code>TEST</code> / tags / params, asserts, suite/group fixtures, FFF mocks,
+thin C++ / Rust adapters.</p>
+<p><strong>Forward design</strong></p>
+<ul>
+<li>Per-case fixtures (beyond suite/group) as optional macros on SMALL/FULL.</li>
+<li>Rust <code>#[polyontest::test]</code> proc-macro as a first-class adapter, not only FFI.</li>
+<li>Mocking stays an ExtensionPack path (<code>fff_fakes</code> today); codegen mocks later.</li>
+</ul>
+<h3 id="on-target-runtime-and-profiles">On-target runtime and profiles<a class="headerlink" href="#on-target-runtime-and-profiles" title="Permanent link">&para;</a></h3>
+<p>Auto-registration, filtered runner, TINY / SMALL / FULL, writer and lock hooks.</p>
+<p><strong>Forward design</strong></p>
+<ul>
+<li>Profile gates remain the only way heavy Tier-2/3 hooks appear on-target.</li>
+<li>Isolation and coverage hooks never enable under TINY.</li>
+</ul>
+<h3 id="protocol-ptwp">Protocol (PTWP)<a class="headerlink" href="#protocol-ptwp" title="Permanent link">&para;</a></h3>
+<p>Codec-agnostic <code>Event</code> model; COBS binary or text lines.</p>
+<p><strong>Forward design</strong></p>
+<ul>
+<li>Extend the enum for timing, resource watermarks, coverage frames, and
+  command-mode RPC — without breaking stream-mode consumers that ignore unknown
+  types where possible.</li>
+<li>Command mode reuses the same event vocabulary for acknowledgements and
+  case-level control.</li>
+</ul>
+<h3 id="orchestration">Orchestration<a class="headerlink" href="#orchestration" title="Permanent link">&para;</a></h3>
+<p>v0.1 is <strong>stream mode only</strong>: DUT runs; host drains until <code>Done</code>.</p>
+<pre class="mermaid"><code>stateDiagram-v2
+  [*] --&gt; StreamMode: v0.1
+  StreamMode --&gt; CommandMode: v2
+  CommandMode --&gt; HilConductor: v2.x
+  HilConductor --&gt; [*]: multi-node bench</code></pre>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Control plane</th>
+<th>DUT role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Stream</strong></td>
+<td>Host drains</td>
+<td>Boot → run all/filtered → emit → exit</td>
+</tr>
+<tr>
+<td><strong>Command</strong></td>
+<td>Host RPC</td>
+<td>Boot → listen → run case / inject / reset on demand</td>
+</tr>
+<tr>
+<td><strong>HIL conductor</strong></td>
+<td>Host clocks multi-board steps</td>
+<td>DUT + stimulus peers under barriers</td>
+</tr>
+</tbody>
+</table>
+<h3 id="connectivity">Connectivity<a class="headerlink" href="#connectivity" title="Permanent link">&para;</a></h3>
+<p>Plugin traits <code>Board</code> + <code>Transport</code>. Builtins: <code>host</code>, <code>qemu_m33</code> (logical
+<code>uart</code> = semihosting).</p>
+<p><strong>Forward plugin ids</strong> (from <a href="../plugins/">Plugins</a>): <code>usb_cdc</code>, <code>hci</code>, <code>nanopb</code>,
+<code>pico2w</code>, plus real UART and desk-hardware flash/reset boards.</p>
+<h3 id="reporting-and-delivery">Reporting and delivery<a class="headerlink" href="#reporting-and-delivery" title="Permanent link">&para;</a></h3>
+<p>Console, JUnit, JSON exporters; GitHub CI; amalgam + modular CMake.</p>
+<p><strong>Forward design</strong></p>
+<ul>
+<li>Exporters stay reporters; the <strong>dashboard</strong> is a separate viewer (Tier 2).</li>
+<li>Dynamic / third-party plugin discovery remains an open delivery improvement;
+  traits already allow it without core changes.</li>
+</ul>
+<hr />
+<h2 id="tier-2-resilience-and-insight">Tier 2 — Resilience and insight<a class="headerlink" href="#tier-2-resilience-and-insight" title="Permanent link">&para;</a></h2>
+<h3 id="isolation-and-sandboxing">Isolation and sandboxing<a class="headerlink" href="#isolation-and-sandboxing" title="Permanent link">&para;</a></h3>
+<p><strong>Problem.</strong> A HardFault, OOM, kernel panic, or host segfault ends the entire
+run. Fixtures reset <em>state</em>; isolation contains <em>blast radius</em>.</p>
+<pre class="mermaid"><code>flowchart LR
+  subgraph today [v0.1]
+    sameProc[Same process privilege]
+    crash[Fault] --&gt; dead[Whole run dead]
+  end
+  subgraph hostTarget [Host isolation v1.x]
+    orch[polyontest-cli]
+    caseA[Case A process]
+    caseB[Case B process]
+    orch --&gt; caseA
+    orch --&gt; caseB
+    caseA --&gt;|segfault| failA[FAIL continue]
+    orch --&gt; caseB
+  end
+  subgraph mcuTarget [MCU isolation v2.x]
+    mpu[MPU unprivileged region]
+    fault[MemManage HardFault]
+    emit[Emit FAIL reclaim]
+    mpu --&gt; fault --&gt; emit --&gt; next[Next case]
+  end</code></pre>
+<table>
+<thead>
+<tr>
+<th>Target</th>
+<th>Mechanism</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Host / CI</td>
+<td>Process-per-case (fork or re-spawn); crash → FAIL + continue</td>
+<td><code>host</code> board + CLI policy</td>
+</tr>
+<tr>
+<td>QEMU</td>
+<td>Optional reboot-between-case / between-suite</td>
+<td><code>qemu_*</code> board policy</td>
+</tr>
+<tr>
+<td>MCU / RTOS</td>
+<td>MPU regions, unprivileged test task; fault → FAIL → reclaim or reset</td>
+<td>Profile-gated ExtensionPack (≥ SMALL/FULL)</td>
+</tr>
+<tr>
+<td>Linux DUT</td>
+<td>Namespaces / seccomp</td>
+<td>Optional later; out of MCU path</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Architecture notes</strong></p>
+<ul>
+<li>Isolation is a <strong>Board / runner policy</strong>, not a reporter concern.</li>
+<li>Stream mode can still isolate on host by spawning one filtered binary (or one
+  case via env) per child; command mode makes per-case reset natural.</li>
+<li>MPU packs must not link into TINY builds.</li>
+</ul>
+<h3 id="fault-injection-and-mutation-chaos">Fault injection and mutation (chaos)<a class="headerlink" href="#fault-injection-and-mutation-chaos" title="Permanent link">&para;</a></h3>
+<p>FFF today is <strong>author-written</strong> fakes. Chaos is <strong>systematic</strong> resilience
+testing.</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Intent</th>
+<th>Architectural home</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Software mutation</td>
+<td>Flip conditionals / drop lines; measure kill rate of the suite</td>
+<td>Offline host CI job; not on-silicon first</td>
+</tr>
+<tr>
+<td>System fault injection</td>
+<td><code>alloc</code> → NULL, I2C timeout, drop packets</td>
+<td>ExtensionPack + interceptor hooks; live inject via command mode</td>
+</tr>
+<tr>
+<td>Hardware fault injection</td>
+<td>Brownout, clock glitch, power cycle</td>
+<td>Tier-3 stimulus <code>Board</code> roles</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>flowchart TB
+  author[Test author FFF] --&gt; unit[Unit isolation]
+  inject[FaultInjection pack] --&gt; resilience[Error-path resilience]
+  mutate[Mutation CI] --&gt; suiteQuality[Suite quality score]
+  stim[HIL stimulus] --&gt; physical[Physical fault]</code></pre>
+<p><strong>Forward design</strong></p>
+<ul>
+<li>Keep mutation off the DUT flash path: mutate host or rebuild artifacts in CI.</li>
+<li>Fault-injection APIs should be selectable per case/suite (tags), so chaos
+  runs are opt-in.</li>
+<li>Hardware faults share the HIL conductor sync model below.</li>
+</ul>
+<h3 id="observability">Observability<a class="headerlink" href="#observability" title="Permanent link">&para;</a></h3>
+<p>v0.1 observability is the PTWP pass/fail stream plus console.</p>
+<p><strong>MVP (v1.x)</strong></p>
+<ul>
+<li>Per-case wall time and optional heap / stack high-water marks as PTWP fields
+  or sibling events.</li>
+<li>Host live tail already exists via console reporter; enrich, do not replace.</li>
+</ul>
+<p><strong>Later</strong></p>
+<ul>
+<li>Sampled PC / call traces on FULL or host-only.</li>
+<li>Coverage frames (next section) feed the same observability pipeline;
+  reporters and the dashboard <em>consume</em> them.</li>
+</ul>
+<h3 id="coverage-and-execution-trace-harvest">Coverage and execution-trace harvest<a class="headerlink" href="#coverage-and-execution-trace-harvest" title="Permanent link">&para;</a></h3>
+<p>A freestanding MCU has no filesystem for <code>.gcda</code>. Coverage must ride the wire.</p>
+<pre class="mermaid"><code>sequenceDiagram
+  participant DUT
+  participant PTWP
+  participant Host
+  participant Artifacts
+  DUT-&gt;&gt;DUT: Instrumented counters in RAM
+  DUT-&gt;&gt;PTWP: CoverageDump frames
+  PTWP-&gt;&gt;Host: decode
+  Host-&gt;&gt;Artifacts: LCOV or gcda reconstruction
+  Host-&gt;&gt;Artifacts: Attach to case or suite id</code></pre>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Design</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Freestanding coverage</td>
+<td>New PTWP message types; host reconstructs LCOV / <code>.gcda</code></td>
+</tr>
+<tr>
+<td>Per-case resources</td>
+<td>Timing + heap/stack watermarks on case events</td>
+</tr>
+<tr>
+<td>Host-first path</td>
+<td>Native gcov/LLVM-cov on <code>host</code> board before silicon dump</td>
+</tr>
+<tr>
+<td>Hot-spots</td>
+<td>Optional; FULL profile or host-only</td>
+</tr>
+</tbody>
+</table>
+<p>Coverage sits under <strong>observability</strong>; JUnit/JSON/dashboard only <em>display</em>
+harvested data.</p>
+<h3 id="reporting-dashboard">Reporting dashboard<a class="headerlink" href="#reporting-dashboard" title="Permanent link">&para;</a></h3>
+<p>Exporters ≠ dashboard.</p>
+<table>
+<thead>
+<tr>
+<th>Piece</th>
+<th>Role</th>
+<th>Wave</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Console / JUnit / JSON</td>
+<td>Machine- and human-readable <strong>exporters</strong></td>
+<td>v0.1</td>
+</tr>
+<tr>
+<td>Post-run dashboard</td>
+<td>Viewer over JSON/history: suite matrix, flakes, boards</td>
+<td>v1.x first</td>
+</tr>
+<tr>
+<td>Live event UI</td>
+<td>Optional SPA over streaming PTWP</td>
+<td>After post-run viewer</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Decision:</strong> ship a <strong>post-run viewer</strong> first (consume existing artifacts and a
+small history store). Do not block v1.x on a live dashboard.</p>
+<hr />
+<h2 id="tier-3-bench-hil-and-regulatory">Tier 3 — Bench HIL and regulatory<a class="headerlink" href="#tier-3-bench-hil-and-regulatory" title="Permanent link">&para;</a></h2>
+<h3 id="environmental-simulators-and-hil-orchestration">Environmental simulators and HIL orchestration<a class="headerlink" href="#environmental-simulators-and-hil-orchestration" title="Permanent link">&para;</a></h3>
+<p>v2 sketches a dual-board conductor. The full design is a <strong>test bench</strong>: one
+composition root clocks multiple board <em>roles</em>.</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Examples</th>
+<th>Plugin shape</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DUT</td>
+<td>Application MCU, QEMU</td>
+<td>Existing <code>Board</code></td>
+</tr>
+<tr>
+<td>Stimulus</td>
+<td>Programmable PSU, secondary MCU, RF peer, LA trigger</td>
+<td><code>Board</code> or ExtensionPack with sync API</td>
+</tr>
+<tr>
+<td>Synchronizer</td>
+<td>Host barriers: TX on board A ↔ RX on board B</td>
+<td>Conductor in CLI</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>sequenceDiagram
+  participant Host as HIL_conductor
+  participant Dut as DUT_board
+  participant Aux as Stimulus_board
+  Host-&gt;&gt;Dut: prepare_load_arm
+  Host-&gt;&gt;Aux: arm_stimulus
+  Host-&gt;&gt;Dut: run_case_or_command
+  Host-&gt;&gt;Aux: inject_or_listen
+  Dut--&gt;&gt;Host: PTWP_events
+  Aux--&gt;&gt;Host: stimulus_events
+  Host-&gt;&gt;Host: barrier_and_verdict
+  Host-&gt;&gt;Dut: teardown_or_reset
+  Host-&gt;&gt;Aux: teardown</code></pre>
+<p><strong>Topology config (design sketch)</strong></p>
+<ul>
+<li><code>polyontest.toml</code> (or a bench file) lists nodes: <code>{ id, board, role, transport }</code>.</li>
+<li>Conductor steps: <code>arm</code> → <code>barrier</code> → <code>run</code> → <code>collect</code> → <code>verdict</code>.</li>
+<li>Command mode on the DUT pairs naturally with stimulus peers; stream mode can
+  still participate for simple “DUT emits while aux listens” benches.</li>
+</ul>
+<p><strong>Priority:</strong> this wave is a <strong>first-class ship goal</strong> after host isolation and
+command/connectivity foundations — ahead of certification work.</p>
+<h3 id="certification-and-regulatory-packs-aspirational">Certification and regulatory packs (aspirational)<a class="headerlink" href="#certification-and-regulatory-packs-aspirational" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Not near-term work</p>
+<p>Tool qualification (ISO 26262 / DO-178 / IEC 62304 style), certified-compiler
+matrices (IAR, Arm Compiler 6, Tasking), and MISRA consumption packs are
+<strong>aspirational Tier-3 notes only</strong>. Do not staff a Tool Qualification Kit
+until <strong>HIL and isolation have shipped</strong>. Revisit only if a safety market
+pull appears.</p>
+</div>
+<p>Possible future artifacts (documentation-level reminder, not a backlog
+commitment): TQK evidence, frozen amalgam hashes, requirements↔test↔coverage
+traceability, MISRA guidance for amalgam consumers.</p>
+<hr />
+<h2 id="cross-cutting-architecture">Cross-cutting architecture<a class="headerlink" href="#cross-cutting-architecture" title="Permanent link">&para;</a></h2>
+<h3 id="where-each-capability-plugs-in">Where each capability plugs in<a class="headerlink" href="#where-each-capability-plugs-in" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TB
+  subgraph onTarget [On-target]
+    harness[C harness profiles]
+    extHooks[Optional hooks MPU coverage inject]
+    harness --&gt; extHooks
+  end
+  subgraph wire [Wire]
+    ptwp[PTWP Event model]
+  end
+  subgraph hostPlane [Host]
+    cli[Composition root]
+    board[Board policies isolation HIL roles]
+    transport[Transport]
+    codec[Codec]
+    reporters[Reporters exporters]
+    packs[ExtensionPacks chaos coverage]
+    dash[Dashboard viewer]
+    cli --&gt; board
+    cli --&gt; transport
+    cli --&gt; codec
+    cli --&gt; reporters
+    cli --&gt; packs
+    reporters --&gt; dash
+  end
+  extHooks --&gt; ptwp
+  ptwp --&gt; transport
+  codec --&gt; reporters</code></pre>
+<table>
+<thead>
+<tr>
+<th>Concern</th>
+<th>Primary extension point</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Isolation (host)</td>
+<td><code>Board</code> spawn policy + CLI</td>
+</tr>
+<tr>
+<td>Isolation (MCU)</td>
+<td>Profile-gated harness + ExtensionPack</td>
+</tr>
+<tr>
+<td>Fault injection</td>
+<td>ExtensionPack (+ command RPC later)</td>
+</tr>
+<tr>
+<td>Mutation</td>
+<td>Host CI tooling outside DUT amalgam</td>
+</tr>
+<tr>
+<td>Coverage dump</td>
+<td>PTWP + harness hooks + coverage reporter</td>
+</tr>
+<tr>
+<td>Dashboard</td>
+<td>Consumes reporter artifacts / history</td>
+</tr>
+<tr>
+<td>HIL / stimulus</td>
+<td>Multi-<code>Board</code> conductor in CLI</td>
+</tr>
+<tr>
+<td>Certification</td>
+<td>Docs / pack only if ever revived</td>
+</tr>
+</tbody>
+</table>
+<h3 id="progressive-enhancement-vs-enterprise-depth">Progressive enhancement vs enterprise depth<a class="headerlink" href="#progressive-enhancement-vs-enterprise-depth" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TD
+  hobby[Hobby TINY amalgam] --&gt; stream[Stream + text or COBS]
+  stream --&gt; hostCi[Host CI filters JUnit]
+  hostCi --&gt; isolHost[Host isolation]
+  isolHost --&gt; cmd[Command mode]
+  cmd --&gt; boards[Real boards Pico]
+  boards --&gt; hil[HIL bench]
+  hil --&gt; mpu[MPU isolation]
+  mpu --&gt; cov[PTWP coverage]
+  cov --&gt; chaos[Mutation and inject]
+  chaos -.-&gt;|aspirational| qual[Qualification pack]</code></pre>
+<p>Hobby and CI users stay on the left. Enterprise depth accumulates to the right
+without rewriting the Tier 1 spine.</p>
+<hr />
+<h2 id="decisions-locked">Decisions locked<a class="headerlink" href="#decisions-locked" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dashboard</td>
+<td>Post-run viewer first; live UI later</td>
+</tr>
+<tr>
+<td>Observability MVP</td>
+<td>PTWP timing + resource watermarks before freestanding coverage</td>
+</tr>
+<tr>
+<td>Isolation MVP</td>
+<td>Host process-per-case before MPU</td>
+</tr>
+<tr>
+<td>HIL</td>
+<td>Full bench roles (DUT + stimulus + sync), not only dual-board shorthand</td>
+</tr>
+<tr>
+<td>Certification</td>
+<td>Aspirational Tier-3 note; <strong>HIL and isolation ship first</strong></td>
+</tr>
+<tr>
+<td>Flash budget</td>
+<td>No Tier-2/3 on-target cost in TINY</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="out-of-scope-for-this-document">Out of scope for this document<a class="headerlink" href="#out-of-scope-for-this-document" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Concrete crate layouts, API signatures, or ticket-level tasks.</li>
+<li>Implementation of any wave above.</li>
+</ul>
+<p>When a wave starts, turn the relevant section into an ADR or design doc under
+<code>docs/</code> and keep this roadmap as the index of intent.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; PolyOnTest contributors — Apache-2.0
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
