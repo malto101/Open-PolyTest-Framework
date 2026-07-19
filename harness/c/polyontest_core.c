@@ -57,6 +57,7 @@ static const void *g_param;
 static int g_param_active;
 static size_t g_param_index;
 static const char *g_filter_group;
+static const char *g_filter_case;
 
 #if POLYONTEST_CFG_HAS_MUTEX
 static polyontest_lock_fn_t g_lock;
@@ -823,6 +824,13 @@ static int match_group(const polyontest_case_t *t, const char *suite) {
            str_cmp(t->group, g_filter_group) == 0;
 }
 
+static int match_case(const polyontest_case_t *t, const char *suite) {
+    return suite && g_filter_group && g_filter_case &&
+           str_cmp(t->suite, suite) == 0 &&
+           str_cmp(t->group, g_filter_group) == 0 &&
+           str_cmp(t->name, g_filter_case) == 0;
+}
+
 #if POLYONTEST_CFG_HAS_TAGS
 static int match_tag(const polyontest_case_t *t, const char *tag) {
     return case_matches_tag(t, tag);
@@ -858,13 +866,72 @@ int polyontest_run_group(const char *suite, const char *group) {
     return run_filtered(match_group, suite);
 }
 
+int polyontest_run_case(const char *suite, const char *group, const char *case_name) {
+    if (!suite || !suite[0] || !group || !group[0] || !case_name || !case_name[0]) {
+        return polyontest_run_all();
+    }
+    g_filter_group = group;
+    g_filter_case = case_name;
+    return run_filtered(match_case, suite);
+}
+
 int polyontest_run_from_env(void) {
 #if defined(POLYONTEST_FREESTANDING)
     return polyontest_run_all();
 #else
+    if (getenv("POLY_DISCOVER")) {
+        polyontest_collect_section_cases();
+        polyontest_case_t *list = sort_cases(g_tests);
+        const char *tag = getenv("POLYONTEST_TAG");
+        const char *suite = getenv("POLY_SUITE");
+        if (!suite || !suite[0]) {
+            suite = getenv("POLYONTEST_SUITE");
+        }
+        const char *group = getenv("POLY_GROUP");
+        if (!group || !group[0]) {
+            group = getenv("POLYONTEST_GROUP");
+        }
+        for (polyontest_case_t *t = list; t; t = t->next) {
+#if POLYONTEST_CFG_HAS_TAGS
+            if (tag && tag[0] && !case_matches_tag(t, tag)) {
+                continue;
+            }
+#endif
+            if (suite && suite[0] && str_cmp(t->suite, suite) != 0) {
+                continue;
+            }
+            if (group && group[0] && str_cmp(t->group, group) != 0) {
+                continue;
+            }
+            char buf[256];
+            size_t at = 0;
+            at = append_str(buf, sizeof(buf), at, "list-case:");
+            at = append_str(buf, sizeof(buf), at, t->suite ? t->suite : "?");
+            at = append_str(buf, sizeof(buf), at, ".");
+            at = append_str(buf, sizeof(buf), at, t->group ? t->group : "?");
+            at = append_str(buf, sizeof(buf), at, ".");
+            at = append_str(buf, sizeof(buf), at, t->name ? t->name : "?");
+            (void)at;
+            emit_raw(buf, strlen(buf));
+            emit_raw("\n", 1);
+        }
+        exit(0);
+    }
+
     const char *tag = getenv("POLYONTEST_TAG");
-    const char *suite = getenv("POLYONTEST_SUITE");
-    const char *group = getenv("POLYONTEST_GROUP");
+    const char *suite = getenv("POLY_SUITE");
+    if (!suite || !suite[0]) {
+        suite = getenv("POLYONTEST_SUITE");
+    }
+    const char *group = getenv("POLY_GROUP");
+    if (!group || !group[0]) {
+        group = getenv("POLYONTEST_GROUP");
+    }
+    const char *case_name = getenv("POLY_CASE");
+
+    if (suite && suite[0] && group && group[0] && case_name && case_name[0]) {
+        return polyontest_run_case(suite, group, case_name);
+    }
     if (tag && tag[0]) {
         return polyontest_run_tag(tag);
     }

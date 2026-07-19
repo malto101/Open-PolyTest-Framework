@@ -106,10 +106,15 @@ int polyontest_run_tag(const char *tag);
 int polyontest_run_suite(const char *suite);
 /** Run cases in `suite`/`group`. */
 int polyontest_run_group(const char *suite, const char *group);
+/** Run a specific test case by name. */
+int polyontest_run_case(const char *suite, const char *group, const char *case_name);
 /**
- * Host helper: honor POLYONTEST_TAG, POLYONTEST_SUITE+POLYONTEST_GROUP, or
- * POLYONTEST_SUITE from the environment; otherwise run all.
- * On freestanding targets, always runs all.
+ * Host helper: honor environment routing:
+ * - POLY_DISCOVER=1: Print all discovered tests and exit.
+ * - POLY_CASE=<name>: Run single test case matching suite/group/case.
+ * - POLY_SUITE / POLYONTEST_SUITE, POLY_GROUP / POLYONTEST_GROUP, POLYONTEST_TAG:
+ *   Filter executed tests by suite, group, or tag.
+ * Otherwise run all. On freestanding targets, always runs all.
  */
 int polyontest_run_from_env(void);
 

@@ -70,6 +70,23 @@ TEST_TAGS(Math, Basic, SkipMe, "skipdemo") {
     ASSERT_TRUE(0);
 }
 
+#ifdef POLYONTEST_TEST_CRASH
+TEST(Math, Basic, CrashMe) {
+    volatile int *p = NULL;
+    (void)p;
+    *p = 42;
+}
+#endif
+
+#ifdef POLYONTEST_TEST_HANG
+TEST(HangSuite, HangGroup, HangMe) {
+    while (1) {
+        // infinite loop for timeout testing
+    }
+}
+#endif
+
+
 TEST(Math, Basic, ProtectRegion) {
     int entered = 0;
     if (TEST_PROTECT()) {

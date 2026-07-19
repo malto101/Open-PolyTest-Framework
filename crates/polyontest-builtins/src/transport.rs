@@ -73,6 +73,10 @@ impl ChildStdioTransport {
     pub fn wait(mut self) -> Result<std::process::ExitStatus> {
         Ok(self.child.wait()?)
     }
+
+    pub fn kill(&mut self) -> Result<()> {
+        Ok(self.child.kill()?)
+    }
 }
 
 impl Transport for ChildStdioTransport {

@@ -1,7 +1,7 @@
-/target/
-/build/
-/report.xml
-/report.json
+target/
+build/
+report.xml
+report.json
 .DS_Store
 *.o
 *.elf
@@ -11,3 +11,4 @@
 __pycache__/
 site/
 .venv-docs/
+conductor/

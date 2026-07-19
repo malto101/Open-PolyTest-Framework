@@ -147,8 +147,17 @@ impl Reporter for JunitReporter {
                 name,
                 status,
             } => {
-                self.cases
-                    .push((suite.clone(), name.clone(), status.clone(), None));
+                if let Some(c) = self
+                    .cases
+                    .iter_mut()
+                    .rev()
+                    .find(|(s, n, _, _)| s == suite && n == name)
+                {
+                    c.2 = status.clone();
+                } else {
+                    self.cases
+                        .push((suite.clone(), name.clone(), status.clone(), None));
+                }
             }
             Event::AssertFail {
                 suite,
@@ -163,6 +172,7 @@ impl Reporter for JunitReporter {
                     .find(|(s, n, _, _)| s == suite && n == name)
                 {
                     c.3 = Some(message.clone());
+                    c.2 = TestStatus::Failed;
                 } else {
                     self.cases.push((
                         suite.clone(),
